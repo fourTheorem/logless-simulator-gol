@@ -1,0 +1,26 @@
+{
+  "name": "gol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "lint": "echo 'linting...' && spacey-standard | snazzy",
+    "test": "tap 'test/**/*.test.js' --branches=75 --statements=90 --functions=90 --lines=90",
+    "commit-check": "npm run test && npm run lint",
+    "coverage": "npm run test -- --cov --coverage-report=html",
+    "coveralls": "npm run test -- --cov --coverage-report=text-lcov | coveralls"
+  },
+  "nyc": {
+    "exclude": [
+      "**/test/**/*.js"
+    ]
+  }
+}
